@@ -90,7 +90,15 @@ while endoflist == False:
         #print("TIT Debut: " + str(idx_title) + " - Fin: " + str(idx_ftitle))
         episode=str(x)[idx_episode:idx_fepisode]
         title=str(x)[idx_title:idx_ftitle]
-        title=title.replace('"','').replace("'","_").replace(" ","_")
+        title = title.replace(" : ", "-")
+        title = title.replace(": ", "-")
+        title = title.replace(":", "-")
+        title = title.replace('"','')
+        title = title.replace("' ", "_")
+        title = title.replace("'","_")
+        title = title.replace(" ","_")
+
+
         trouve="S" + str(index)+".E"+episode+"."+title
 
 

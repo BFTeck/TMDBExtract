@@ -133,3 +133,5 @@ dmypy.json
 .idea/inspectionProfiles/profiles_settings.xml
 
 .idea/modules.xml
+
+*.db
