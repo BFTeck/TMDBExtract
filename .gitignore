@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+.idea/TMDBExtract.iml
+
+.idea/inspectionProfiles/profiles_settings.xml
+
+.idea/modules.xml
