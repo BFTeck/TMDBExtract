@@ -31,10 +31,10 @@ import requests
 #                Variables                   #
 #--------------------------------------------#
 
-#path = "Y:\ATRIER\PatPatrouille"
-path = "Y:\Dessins animés - Enfants\Paw_Patrol"
+path = "Y:\ATRIER\PatPatrouille"
+#path = "Y:\Dessins animés - Enfants\Paw_Patrol"
 dbname="57532-paw-patrol.db"
-
+nomdelaseries="La Pat'Patrouille"
 #--------------------------------------------#
 #             Code Fonction                  #
 #--------------------------------------------#
@@ -88,24 +88,23 @@ for filepath in listoffiles:
     renamed=False
     for row in c.execute(sqlcommand):
         print(row)
-        #La Pat'Patrouille.S06.E24.La Super Patrouille - L'incroyable Hellinger.ts
         titre_de_lepisode = row[2]
         duree = titre_de_lepisode.find("___(21_min)")
         if duree > -1:
             titre_de_lepisode = titre_de_lepisode[:duree]
         if int(row[0]) < 10:
             if int(row[1]) < 10:
-                newcompletepath = path + os.sep + "La Pat'Patrouille.S0" + row[0] + ".E0" + row[
+                newcompletepath = path + os.sep + nomdelaseries + ".S0" + row[0] + ".E0" + row[
                     1] + "." + titre_de_lepisode + extension
             else:
-                newcompletepath = path + os.sep + "La Pat'Patrouille.S0" + row[0] + ".E" + row[
+                newcompletepath = path + os.sep + nomdelaseries + ".S0" + row[0] + ".E" + row[
                     1] + "." + titre_de_lepisode + extension
         else:
             if int(row[1]) < 10:
-                newcompletepath = path + os.sep + "La Pat'Patrouille.S" + row[0] + ".E0" + row[
+                newcompletepath = path + os.sep + nomdelaseries + ".S" + row[0] + ".E0" + row[
                     1] + "." + titre_de_lepisode + extension
             else:
-                newcompletepath = path + os.sep + "La Pat'Patrouille.S" + row[0] + ".E" + row[
+                newcompletepath = path + os.sep + nomdelaseries + ".S" + row[0] + ".E" + row[
                     1] + "." + titre_de_lepisode + extension
         print(completepath+" ==> "+newcompletepath)
         os.rename(completepath, newcompletepath)
@@ -123,17 +122,17 @@ for filepath in listoffiles:
                 titre_de_lepisode = titre_de_lepisode[:duree]
             if int(row[0]) < 10:
                 if int(row[1]) < 10:
-                    newcompletepath = path + os.sep + "La Pat'Patrouille.S0" + row[0] + ".E0" + row[
+                    newcompletepath = path + os.sep + nomdelaseries + ".S0" + row[0] + ".E0" + row[
                         1] + "." + titre_de_lepisode + extension
                 else:
-                    newcompletepath = path + os.sep + "La Pat'Patrouille.S0" + row[0] + ".E" + row[
+                    newcompletepath = path + os.sep + nomdelaseries + ".S0" + row[0] + ".E" + row[
                         1] + "." + titre_de_lepisode + extension
             else:
                 if int(row[1]) < 10:
-                    newcompletepath = path + os.sep + "La Pat'Patrouille.S" + row[0] + ".E0" + row[
+                    newcompletepath = path + os.sep + nomdelaseries + ".S" + row[0] + ".E0" + row[
                         1] + "." + titre_de_lepisode + extension
                 else:
-                    newcompletepath = path + os.sep + "La Pat'Patrouille.S" + row[0] + ".E" + row[
+                    newcompletepath = path + os.sep + nomdelaseries + ".S" + row[0] + ".E" + row[
                         1] + "." + titre_de_lepisode + extension
             print(completepath + " ==> " + newcompletepath)
             os.rename(completepath, newcompletepath)
@@ -151,7 +150,7 @@ for filepath in listoffiles:
         # filename
 
         txt = basename_without_ext
-        x = re.search("La Pat'Patrouille.S([0-9]{2}).E([0-9]{2}).(.*)", txt)
+        x = re.search(nomdelaseries + ".S([0-9]{2}).E([0-9]{2}).(.*)", txt)
         if x:
             #print(x)
             #print(basename_without_ext[26:])
@@ -208,14 +207,14 @@ for filepath in listoffiles:
                         titre_de_lepisode=titre_de_lepisode[:duree]
                     if int(row[0]) < 10:
                         if int(row[1]) < 10:
-                            newcompletepath = path + os.sep + "La Pat'Patrouille.S0" + row[0] + ".E0" + row[1] + "." + titre_de_lepisode + extension
+                            newcompletepath = path + os.sep + nomdelaseries + ".S0" + row[0] + ".E0" + row[1] + "." + titre_de_lepisode + extension
                         else:
-                            newcompletepath = path + os.sep + "La Pat'Patrouille.S0" + row[0] + ".E" + row[1] + "." + titre_de_lepisode + extension
+                            newcompletepath = path + os.sep + nomdelaseries + ".S0" + row[0] + ".E" + row[1] + "." + titre_de_lepisode + extension
                     else:
                         if int(row[1]) < 10:
-                            newcompletepath = path + os.sep + "La Pat'Patrouille.S" + row[0] + ".E0" + row[1] + "." + titre_de_lepisode + extension
+                            newcompletepath = path + os.sep + nomdelaseries + ".S" + row[0] + ".E0" + row[1] + "." + titre_de_lepisode + extension
                         else:
-                            newcompletepath = path + os.sep + "La Pat'Patrouille.S" + row[0] + ".E" + row[1] + "." + titre_de_lepisode + extension
+                            newcompletepath = path + os.sep + nomdelaseries + ".S" + row[0] + ".E" + row[1] + "." + titre_de_lepisode + extension
 
                     print(completepath + " ==> " + newcompletepath)
                     os.rename(completepath, newcompletepath)
@@ -230,7 +229,7 @@ for filepath in listoffiles:
         # filename
 
         txt = basename_without_ext
-        x = re.search("La Pat'Patrouille.S([0-9]{2}).E([0-9]{2}).(.*)", txt)
+        x = re.search(nomdelaseries + ".S([0-9]{2}).E([0-9]{2}).(.*)", txt)
         if x:
             #print(x)
             #print(basename_without_ext[26:])
